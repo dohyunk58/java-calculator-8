@@ -18,7 +18,17 @@ public class Application {
         // 입력값 검증
         if(str == null) throw new IllegalArgumentException("문자열은 null일 수 없습니다");
 
-        bw.write(str);
+        String customDelimiter = null;
+        // 커스텀 구분자가 있는 경우
+        if(str.startsWith("//")) {
+            int endIndexOfDelimiter = str.indexOf("\\n");
+
+            // 커스텀 구분자 추가
+            customDelimiter = str.substring(2, endIndexOfDelimiter);
+        }
+
+        bw.write("str: "+str+"\n구분자: "+customDelimiter+"\n");
         bw.flush();
+        bw.close();
     }
 }

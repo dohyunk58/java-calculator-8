@@ -23,8 +23,17 @@ public class Application {
         if(str.startsWith("//")) {
             int endIndexOfDelimiter = str.indexOf("\\n");
 
+            // 커스텀 구분자의 끝을 알리는 \n 가 없는 경우
+            if(endIndexOfDelimiter == -1) throw new IllegalArgumentException("커스텀 구분자 형식 오류: '\\n'이 없습니다");
+
             // 커스텀 구분자 추가
             customDelimiter = str.substring(2, endIndexOfDelimiter);
+
+            // 커스텀 구분자에 숫자가 포함되어 있는지 확인
+            char[] charArr = customDelimiter.toCharArray();
+            for (int i = 0; i < charArr.length; i++) {
+                if (Character.isDigit(charArr[i])) throw new IllegalArgumentException("커스텀 구분자 오류: 숫자는 불가합니다");
+            }
         }
 
         bw.write("str: "+str+"\n구분자: "+customDelimiter+"\n");

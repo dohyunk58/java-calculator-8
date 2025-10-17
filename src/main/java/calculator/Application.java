@@ -34,9 +34,22 @@ public class Application {
             for (int i = 0; i < charArr.length; i++) {
                 if (Character.isDigit(charArr[i])) throw new IllegalArgumentException("커스텀 구분자 오류: 숫자는 불가합니다");
             }
+
+            str = str.substring(endIndexOfDelimiter + 2);
         }
 
-        bw.write("str: "+str+"\n구분자: "+customDelimiter+"\n");
+        // 정규표현식을 사용하기 위한 패턴 구분자 패턴
+        String delimiterPattern = ",|:";
+        // 커스텀 구분자가 있는 경우 구분자 패턴에 추가
+        if(customDelimiter != null) {delimiterPattern = delimiterPattern + "|" + customDelimiter;}
+
+        // 문자열 분리
+        String[] numbers = str.split(delimiterPattern);
+
+        bw.write("입력 문자열: "+str+"\n구분자 패턴: "+delimiterPattern+"\n입력한 수:");
+        for(int i = 0; i < numbers.length; i++) {
+            bw.write(" " + numbers[i]);
+        }
         bw.flush();
         bw.close();
     }

@@ -15,6 +15,9 @@ public class Application {
         // 입력값을 저장할 변수 str
         String str = Console.readLine();
 
+        // 입력값 검증
+        if(str == null) throw new IllegalArgumentException("문자열은 null일 수 없습니다");
+
         bw.write(str);
         bw.flush();
     }

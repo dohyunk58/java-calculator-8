@@ -4,7 +4,7 @@
 
 ### 1. 입출력
 
-- [ ] 사용자의 입력을 camp.nextstep.edu.missionutils.Console의 readLine()으로 받기
+- [x] 사용자의 입력을 camp.nextstep.edu.missionutils.Console의 readLine()으로 받기
 - [ ] 입력 유효성 검증
 - [ ] 덧셈 결과 출력
 
@@ -26,3 +26,4 @@
 - 내용적 오류
   - [ ] 구분자로 분리한 값 중에 숫자로 변환할 수 없는 문자가 있는 경우 (음수 기호를 포함)
   - [ ] 구분자 사이에 숫자가 없는 경우 (ex. "1,,2")
+  - [ ] 입력값이 구분자로 끝나는 경우 (ex. "1,2,")

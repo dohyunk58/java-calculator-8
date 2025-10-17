@@ -5,7 +5,7 @@
 ### 1. 입출력
 
 - [x] 사용자의 입력을 camp.nextstep.edu.missionutils.Console의 readLine()으로 받기
-- [ ] 덧셈 결과 출력
+- [x] 덧셈 결과 출력
 
 ### 2. 문자열 처리
 

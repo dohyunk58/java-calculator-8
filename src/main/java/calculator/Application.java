@@ -57,6 +57,8 @@ public class Application {
         for(int i = 0; i < numbers.length; i++) {
             bw.write(" " + numbers[i]);
         }
+
+        bw.write("\n결과 : "+sum);
         bw.flush();
         bw.close();
     }

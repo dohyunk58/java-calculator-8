@@ -46,6 +46,13 @@ public class Application {
         // 문자열 분리
         String[] numbers = str.split(delimiterPattern);
 
+        // 숫자의 합계 구하기
+        long sum = 0;
+        for(int i = 0; i < numbers.length; i++) {
+            sum += Long.parseLong(numbers[i]);
+        }
+
+        // 디버깅용 결과 출력
         bw.write("입력 문자열: "+str+"\n구분자 패턴: "+delimiterPattern+"\n입력한 수:");
         for(int i = 0; i < numbers.length; i++) {
             bw.write(" " + numbers[i]);

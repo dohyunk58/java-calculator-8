@@ -43,8 +43,8 @@ public class Application {
         // 커스텀 구분자가 있는 경우 구분자 패턴에 추가
         if(customDelimiter != null) {delimiterPattern = delimiterPattern + "|" + customDelimiter;}
 
-        // 문자열 분리
-        String[] numbers = str.split(delimiterPattern);
+        // 빈 문자열도 포함되도록 문자열 분리 (ex. "1:2," -> "1", "2", "")
+        String[] numbers = str.split(delimiterPattern,-1);
 
         /*
          * 숫자 합계 구하기

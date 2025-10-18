@@ -65,6 +65,9 @@ public class Application {
                     throw new IllegalArgumentException("입력값 오류: 숫자로 변환할 수 없는 문자가 포함되어 있습니다");
                 }
 
+                // 양수가 아닌 경우
+                if (!(num > 0)) throw new IllegalArgumentException("입력값 오류: "+num+"은 양수가 아닙니다");
+
                 sum += num;
             }
         }

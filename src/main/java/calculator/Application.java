@@ -46,10 +46,19 @@ public class Application {
         // 문자열 분리
         String[] numbers = str.split(delimiterPattern);
 
-        // 숫자의 합계 구하기
+        /*
+         * 숫자 합계 구하기
+         * 입력값이 ""이 아닌 경우 아래 if문에 진입하여 숫자별로 sum에 더함
+         * 입력값이 ""인 경우, 아래 if문을 넘어 sum이 0으로 출력됨
+         */
         long sum = 0;
-        for(int i = 0; i < numbers.length; i++) {
-            sum += Long.parseLong(numbers[i]);
+        if (!(numbers.length == 1 && numbers[0].isEmpty())) {
+            for(int i = 0; i < numbers.length; i++) {
+                // 구분자 사이 숫자가 없는 경우
+                if (numbers[i].isEmpty()) throw new IllegalArgumentException("입력값 오류: 구분자 사이에 숫자가 없습니다");
+
+                sum += Long.parseLong(numbers[i]);
+            }
         }
 
         // 디버깅용 결과 출력

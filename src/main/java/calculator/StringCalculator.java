@@ -1,5 +1,7 @@
 package calculator;
 
+import java.util.regex.Pattern;
+
 public class StringCalculator {
     public long add(String str) {
         // 입력값 검증
@@ -22,8 +24,10 @@ public class StringCalculator {
 
         // 정규표현식을 사용하기 위한 패턴 구분자 패턴
         String delimiterPattern = ",|:";
-        // 커스텀 구분자가 있는 경우 구분자 패턴에 추가
-        if(customDelimiter != null) {delimiterPattern = delimiterPattern + "|" + customDelimiter;}
+        // 커스텀 구분자가 있는 경우 구분자 패턴에 추가, Patter.quote() 사용해 특수문자도 일반 문자열 취급
+        if(customDelimiter != null) {
+            delimiterPattern = delimiterPattern + "|" + Pattern.quote(customDelimiter);
+        }
 
         // 빈 문자열도 포함되도록 문자열 분리 (ex. "1:2," -> "1", "2", "")
         String[] numbers = str.split(delimiterPattern,-1);
@@ -60,7 +64,7 @@ public class StringCalculator {
                 }
 
                 // 양수가 아닌 경우
-                if (!(num > 0)) throw new IllegalArgumentException("입력값 오류: "+num+"은 양수가 아닙니다");
+                if (num <= 0) throw new IllegalArgumentException("입력값 오류: "+num+"은 양수가 아닙니다");
 
                 sum += num;
             }

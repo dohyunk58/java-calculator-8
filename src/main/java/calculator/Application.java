@@ -57,7 +57,15 @@ public class Application {
                 // 구분자 사이 숫자가 없는 경우
                 if (numbers[i].isEmpty()) throw new IllegalArgumentException("입력값 오류: 구분자 사이에 숫자가 없습니다");
 
-                sum += Long.parseLong(numbers[i]);
+                // 숫자로 변환할 수 없는 문자가 있는 경우
+                long num;
+                try {
+                    num = Long.parseLong(numbers[i]);
+                } catch (NumberFormatException e) {
+                    throw new IllegalArgumentException("입력값 오류: 숫자로 변환할 수 없는 문자가 포함되어 있습니다");
+                }
+
+                sum += num;
             }
         }
 

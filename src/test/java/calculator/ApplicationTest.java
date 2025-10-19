@@ -6,8 +6,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import java.io.IOException;
-
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -50,10 +48,6 @@ class ApplicationTest extends NsTest {
 
     @Override
     public void runMain() {
-        try {
-            Application.main(new String[]{});
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        Application.main(new String[]{});
     }
 }

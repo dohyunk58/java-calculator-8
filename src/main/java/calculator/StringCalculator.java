@@ -24,7 +24,7 @@ public class StringCalculator {
 
         // 정규표현식을 사용하기 위한 패턴 구분자 패턴
         String delimiterPattern = ",|:";
-        // 커스텀 구분자가 있는 경우 구분자 패턴에 추가, Patter.quote() 사용해 특수문자도 일반 문자열 취급
+        // 커스텀 구분자가 있는 경우 구분자 패턴에 추가, Pattern.quote() 사용해 특수문자도 일반 문자열 취급
         if(customDelimiter != null) {
             delimiterPattern = delimiterPattern + "|" + Pattern.quote(customDelimiter);
         }
@@ -35,7 +35,7 @@ public class StringCalculator {
         return sumNumbers(numbers);
     }
 
-    public void validateCustomDelimiter(String customDelimiter) {
+    private void validateCustomDelimiter(String customDelimiter) {
         // 커스텀 구분자에 숫자가 포함되어 있는지 확인
         char[] charArr = customDelimiter.toCharArray();
         for (int i = 0; i < charArr.length; i++) {
@@ -43,7 +43,7 @@ public class StringCalculator {
         }
     }
 
-    public long sumNumbers(String[] numbers) {
+    private long sumNumbers(String[] numbers) {
         /*
          * 숫자 합계 구하기
          * 입력값이 ""이 아닌 경우 아래 if문에 진입하여 숫자별로 sum에 더함

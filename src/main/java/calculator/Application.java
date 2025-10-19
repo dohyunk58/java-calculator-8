@@ -15,17 +15,11 @@ public class Application {
         // 입력값을 저장할 변수 str
         String str = Console.readLine();
 
-        try {
-            StringCalculator calculator = new StringCalculator();
-            long result = calculator.add(str);
+        StringCalculator calculator = new StringCalculator();
+        long result = calculator.add(str);
 
-            bw.write("결과 : " + result);
-            bw.flush();
-        } catch (IllegalArgumentException e) {
-            bw.write(e.getMessage());
-            bw.flush();
-        } finally {
-            bw.close();
-        }
+        bw.write("결과 : " + result);
+        bw.flush();
+        bw.close();
     }
 }
